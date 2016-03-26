@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Book Keeper</title>
-   <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+  <head>
+      <title>Book Keeper</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <link rel="stylesheet" type="text/css" href="main.js">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
+  </head>
 <body>
 
 <div class="firstPage">
@@ -12,14 +14,31 @@
 </div>
 
 <div id='outerdiv' name='div1' data-info='foo' class='box1'>
-        <div id='innerdiv' name='div2' data-info='bar' class='box2'>
-            <p id='t1'>Welcome to our Book Store</p>
-            <p id='t2'>Buy more books - now!</p>
-        </div>
+    <div id='innerdiv' name='div2' data-info='bar' class='box2'>
+       <p id='t1' onclick='func1()'>Welcome to our Book Store</p>
+       <p id='t2'>Buy more books - now!</p>
     </div>
+</div>
+<div id="innerDiv"></div>
 
 
+<script type="text/javascript">
+    
+var func1 = function func1(){
+  document.getElementById('t1').innerHTML = "Read more books";
+  document.getElementById('t1').style.backgroundColor ='aqua';
+}
 
+ var btn = document.createElement("BUTTON");
+ var t = document.createTextNode("CLICK ME");
+ 
+ btn.appendChild(t);
+ document.getElementById('innerDiv').appendChild(btn);
+
+// or here u write:
+// document.getElementById('t1').onclick = func1;
+
+</script>
 
 </body>
 </html>

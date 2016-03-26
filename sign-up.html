@@ -1,32 +1,104 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title></title>
-   <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
 <body>
 
-<form class="sign-up">
-First Name: <input type="text"></input><br>
-Last Name: <input type="text"></input><br>
-Middle Name: <input type="text"></input><br>
-Last Name: <input type="text"></input><br>
-Username: <input type="text"></input><br>
-Email: <input type="text"></input><br>
-Password: <input type="password"></input><br>
-Repeat Password: <input type="password"></input><br>
-Telephone: <input type="number"></input><br>
-Street Address: <input type="text"></input><br>
-City: <input type="text"></input><br>
-ZIP Code: <input type="text"></input><br>
-State: <input type="text"></input><br>
-Country: <input type="text"></input><br><br>
-<button type="submit">Login</button>
-</form><br>
+  <form class="sign-up">
+      First Name: <input id="n" type="text"></input><br>
+      Last Name: <input id="n" type="text"></input><br>
+      Middle Name: <input id="n" type="text"></input><br>
+      Username: <input type="text"></input><br>
+      Email: <input type="text"></input><br>
+      Password: <input id="p1" type="password"></input><br>
+      Repeat Password: <input id="p2" type="password"></input><br>
+      Telephone: <input id="tel" type="number"></input><br>
+      Street Address: <input type="text"></input><br>
+      City: <input type="text"></input><br>
+      ZIP Code: <input type="text"></input><br>
+      State: <input type="text"></input><br>
+      Country: <input id="c1" type="text"></input><br><br>
+    <button type="button" onclick='val()'>Sumbit</button>
+  </form><br>
 
-<a href="index.html">Go Home</a>
+  <div id="msg"></div><br>
+  <a href="index.html">Go Home</a>
 
 
 
-</body>
+  <script type="text/javascript">
+
+  var displayNewMsg = function(msg, error){
+    var color;
+    if (error) {
+      color = "red";
+    } else {
+      color = "green"
+    }
+    $('#msg').append('<div style="' + + '">' + msg + '</div>');
+  };
+
+      var val = function val(){
+        // document.getElementById('msg').innerHTML= "submit clicked";
+
+    // PASSWORD
+        var password = document.getElementById('p1').value;
+        if(password.length<=6){
+          displayNewMsg("Password too short", true);
+
+
+          document.getElementById('msg').innerHTML += "Password to short <br>"; 
+          document.getElementById('msg').style.backgroundColor = 'red';
+        } else{
+          document.getElementById('msg').innerHTML += "Password Correct<br>";
+          document.getElementById('msg').style.backgroundColor = 'green';
+        }
+
+    // CONFIRM PASSWORD
+        var confirm = document.getElementById('p2').value;
+            if(password === confirm && password.length>=6){
+              document.getElementById('msg').innerHTML += "Password match<br>";
+              document.getElementById('msg').style.backgroundColor = 'green';
+            } else{
+              document.getElementById('msg').innerHTML += "Password too short or dont match<br>";
+              document.getElementById('msg').style.backgroundColor = 'red';
+            }
+
+    // COUNTRY
+        var country = document.getElementById('c1').value;
+        var country1= "israel";
+        var country2 = "usa";
+            if(country === country1 || country === country2){
+              document.getElementById('msg').innerHTML += "valid<br>";
+              document.getElementById('msg').style.backgroundColor = 'green';
+            } else {
+              document.getElementById('msg').innerHTML += "not valid<br>";
+              document.getElementById('msg').style.backgroundColor = 'red';
+            }
+
+    // PHONE NUMBER
+        var tel = document.getElementById('tel').value;
+            if(tel.length<=15){
+              document.getElementById('msg').innerHTML += "Thats a cool number<br>";
+              document.getElementById('msg').style.backgroundColor = 'green';
+            } else {
+              document.getElementById('msg').innerHTML += "Wrong number<br>";
+              document.getElementById('msg').style.backgroundColor = 'red';
+            }
+
+    // ONE WORD NAME
+        // var name = document.getElementById('n').value;
+        // var word = name.split(" ");
+            // if(n=== -1){
+            //   document.getElementById('msg').innerHTML = "Only one word";
+            //   document.getElementById('msg').style.backgroundColor = 'red';
+            // } else {
+            //   document.getElementById('msg').innerHTML = "Thats a cool name";
+            //   document.getElementById('msg').style.backgroundColor = 'green';
+            // }
+       }
+    </script>
+  </body>
 </html>
